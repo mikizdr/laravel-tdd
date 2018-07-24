@@ -80,6 +80,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
+                    <br>
+                    {{ app()::VERSION }}
                 </div>
 
                 <div class="links">
