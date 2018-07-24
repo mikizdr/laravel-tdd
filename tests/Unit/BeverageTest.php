@@ -11,16 +11,29 @@ class BeverageTest extends TestCase
 {
     use Databasemigrations;
     // use RefreshDatabase;
+
+    /**
+     * @var Beverage
+     */
+    private $beverage;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->beverage = factory(\App\Beverage::class)->make();
+    }
+
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testExample()
+    public function testBeverageHasName()
     {
-        $beverage = factory(\App\Beverage::class)->make();
-        // dd($beverage);
-        $name = $beverage->name;
-        $this->assertNotEmpty($name);
+        $this->assertNotEmpty($this->beverage->name);
+    }
+    public function testBeverageHasType()
+    {
+        $this->assertNotEmpty($this->beverage->type);
     }
 }
