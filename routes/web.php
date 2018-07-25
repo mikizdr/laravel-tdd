@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('beverage', 'BeverageController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

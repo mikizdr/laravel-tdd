@@ -4,16 +4,19 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * User model has age attribute
      *
-     * @return void
+     * @test
      */
-    public function testBasicTest()
+    public function user_has_age_attribute()
     {
-        $this->assertTrue(true);
+        $user = factory(User::class)->make();
+
+        $this->assertNotNull($user->age);
     }
 }
