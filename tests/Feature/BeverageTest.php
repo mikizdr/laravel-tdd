@@ -30,7 +30,7 @@ class BeverageTest extends TestCase
      *
      * @test
      */
-    public function An_user_can_visit_a_beverage_page_and_views_beverages()
+    public function an_user_can_visit_a_beverage_page_and_views_beverages()
     {
         // user will go to an url
         $response = $this->get('beverage');
