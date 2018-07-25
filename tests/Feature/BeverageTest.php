@@ -3,9 +3,10 @@
 namespace Tests\Feature;
 
 use App\Beverage;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class BeverageTest extends TestCase
 {
@@ -47,4 +48,19 @@ class BeverageTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /** @test */
+    public function a_logged_in_user_can_buy_beverage ()
+    {
+       $this->authentication();
+        // post a data for buying
+        $data = [
+            'beverage_id' => $this->beverage->id,
+            'price' => 200
+        ];
+        $response = $this->post('/beverage/buy', $data);
+        // asser in database
+        $this->assertDatabaseHas('purchases', $data);
+        // assert status
+        $response->assertStatus(201);
+    }
 }

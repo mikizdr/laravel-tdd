@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         // Use create() method to populate the DB or make() for testing
         factory(App\Beverage::class, 10)->create();
+        factory(App\Purchase::class, 10)->create();
     }
 }

@@ -19,3 +19,5 @@ Route::resource('beverage', 'BeverageController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('beverage/buy', 'PurchaseController@buy');
